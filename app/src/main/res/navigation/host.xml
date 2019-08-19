@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/host">
+<navigation
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:startDestination="@id/homeFragmentDes"
+        android:id="@+id/host">
 
+    <fragment
+            android:name="luyen.ninh.wallpaperx.presentations.features.home.HomeFragment"
+            android:id="@+id/homeFragmentDes"
+            android:label="@string/app_name"
+            tools:layout="@layout/fragment_home">
+
+        <action
+                android:id="@+id/action_homeFragment_to_detailFragment"
+                app:destination="@id/detailFragmentDes">
+
+            <argument
+                    android:name="photoID"
+                    app:argType="string"/>
+        </action>
+        <action
+                android:id="@+id/action_homeFragment_to_categoriesFragment"
+                app:destination="@id/categoriesFragmentDes">
+            <argument
+                    app:argType="string"
+                    android:name="currentCateID"/>
+
+        </action>
+    </fragment>
+
+    <fragment
+            android:name="luyen.ninh.wallpaperx.presentations.features.detail.DetailFragment"
+            android:id="@+id/detailFragmentDes"
+            android:label="@string/title_detail"
+            tools:layout="@layout/fragment_detail">
+
+    </fragment>
+
+    <fragment
+            android:name="luyen.ninh.wallpaperx.presentations.features.categories.CategoriesFragment"
+            android:label="@string/title_category"
+            android:id="@+id/categoriesFragmentDes"
+            tools:layout="@layout/fragment_category">
+        <action android:id="@+id/action_categoriesFragment_to_detailFragment"/>
+
+    </fragment>
 </navigation>

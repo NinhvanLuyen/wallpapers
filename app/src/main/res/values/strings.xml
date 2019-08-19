@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WallpapersX</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_category">Categories</string>
 </resources>
