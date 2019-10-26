@@ -3,15 +3,14 @@ package luyen.ninh.wallpaperx.presentations.base.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
-import luyen.ninh.wallpaperx.R
 
 /**
  * Created by luyen_ninh on 2019-08-17.
  */
-open abstract class BaseFragment : Fragment() {
-    init {
-    }
+open abstract class BaseFragment<out V :ViewModel> : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

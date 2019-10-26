@@ -14,17 +14,19 @@
 
         <action
                 android:id="@+id/action_homeFragment_to_detailFragment"
-                app:destination="@id/detailFragmentDes">
+                app:destination="@id/detailFragmentDes"
+                app:popUpTo="@id/homeFragmentDes"
+                app:popUpToInclusive="true">
 
             <argument
                     android:name="photoID"
-                    app:argType="string"/>
+                    app:argType="integer"/>
         </action>
         <action
                 android:id="@+id/action_homeFragment_to_categoriesFragment"
                 app:destination="@id/categoriesFragmentDes">
             <argument
-                    app:argType="string"
+                    app:argType="integer"
                     android:name="currentCateID"/>
 
         </action>
@@ -46,4 +48,5 @@
         <action android:id="@+id/action_categoriesFragment_to_detailFragment"/>
 
     </fragment>
+
 </navigation>

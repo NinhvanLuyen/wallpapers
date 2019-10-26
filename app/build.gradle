@@ -18,9 +18,26 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'TOKEN', '"Bearer 7eb5e024ac5c82c53c2a6081f21dc0e5046efea07e3ae2705c85a080def991f0"')
+            buildConfigField('String', 'USER_AGENT', '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36"')
+            buildConfigField('String', 'HOST', '"https://api.unsplash.com/"')
+
+
+        }
+        debug{
+            buildConfigField('String', 'TOKEN', '"Bearer 7eb5e024ac5c82c53c2a6081f21dc0e5046efea07e3ae2705c85a080def991f0"')
+            buildConfigField('String', 'USER_AGENT', '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36"')
+            buildConfigField('String', 'HOST', '"https://api.unsplash.com/"')
         }
     }
     sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/navigation'] } }
+    androidExtensions {
+        experimental = true
+    }
+    dataBinding {
+        enabled = true
+        enabledForTests = true
+    }
 }
 
 dependencies {
@@ -33,7 +50,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.cardview:cardview:$cardVersion"
     implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
@@ -43,10 +59,30 @@ dependencies {
     implementation "androidx.annotation:annotation:$androidXAnnotations"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     implementation "com.jakewharton.timber:timber:$timberVersion"
+
+    //koin
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-android-scope:$koinVersion"
+    implementation "org.koin:koin-android-viewmodel:$koinVersion"
     //Room
     implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
 
+    //WorkerManager
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //GoogleMap
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
     //Test
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
     testImplementation 'junit:junit:4.12'
