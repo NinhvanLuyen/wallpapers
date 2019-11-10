@@ -2,7 +2,6 @@ package luyen.ninh.wallpaperx.domain.usecase
 
 import android.location.Location
 import androidx.lifecycle.LiveData
-import androidx.paging.DataSource
 import luyen.ninh.wallpaperx.domain.data.Result
 import luyen.ninh.wallpaperx.domain.data.local.room.entities.LocationEntity
 
@@ -16,6 +15,9 @@ interface LocationUC {
     suspend fun deleteLocationAt(locationID: Int)
     suspend fun deleteAllLocation()
     suspend fun saveLocation(location:LocationEntity): Result<Int>
-    fun getAllLiveLocation(): LiveData<List<LocationEntity>>
     suspend fun fetchLocation(): Result<Location?>
+    fun getAllLiveLocation(): LiveData<List<LocationEntity>>
+    fun getVelocityAVG(startTimeOfToday: Long, endTimeOfToDay: Long):LiveData<Float>
+    fun getCurrentVelocityMPM(): LiveData<Float>
+    fun getCurrentVelocityKmPH(): LiveData<Float>
 }

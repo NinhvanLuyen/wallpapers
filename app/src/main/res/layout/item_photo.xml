@@ -8,7 +8,7 @@
 
         <variable
                 name="photo"
-                type="luyen.ninh.wallpaperx.presentations.features.home.viewmodel.PhotoViewModel"/>
+                type="luyen.ninh.wallpaperx.features.home.viewmodel.PhotoViewModel"/>
 
     </data>
     <LinearLayout

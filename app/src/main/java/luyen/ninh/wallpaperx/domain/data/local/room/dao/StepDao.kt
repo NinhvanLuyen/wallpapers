@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import luyen.ninh.wallpaperx.domain.data.local.room.entities.StepEntity
-import luyen.ninh.wallpaperx.presentations.base.utils.TimeHelper
+import luyen.ninh.wallpaperx.base.utils.TimeHelper
 
 /**
  * Created by luyen_ninh on 2019-10-26.

@@ -2,4 +2,8 @@
 <resources>
     <dimen name="margin_medium">20dp</dimen>
     <dimen name="margin_small">10dp</dimen>
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_medium">15sp</dimen>
+    <dimen name="text_size_lag">20sp</dimen>
+    <dimen name="text_size_extra">30sp</dimen>
 </resources>

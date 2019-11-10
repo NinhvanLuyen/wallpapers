@@ -3,6 +3,7 @@ package luyen.ninh.wallpaperx.domain.usecase.uscase_imp
 import android.location.Location
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import kotlinx.coroutines.*
 import luyen.ninh.wallpaperx.domain.data.Result
 import luyen.ninh.wallpaperx.domain.data.local.room.entities.LocationEntity
@@ -31,6 +32,19 @@ class LocationUCImp(
     override fun getAllLiveLocation(): LiveData<List<LocationEntity>> {
         return local.getAllLive()
     }
+    override fun getVelocityAVG(startTimeOfToday: Long, endTimeOfToDay: Long): LiveData<Float> {
+        val map = MediatorLiveData<Float>().apply { value =0F }
+            map.addSource(local.getVelocityKmPHAvg(startTimeOfToday,endTimeOfToDay)) { res ->
+                var velocitySum = 0F
+                res.forEach {
+                    velocitySum += it.distant
+                }
+                (velocitySum/res.size)
+            }
+        return map
+    }
+    override fun getCurrentVelocityKmPH() = local.getCurrentVelocityKmPH()
+    override fun getCurrentVelocityMPM() =local.getCurrentVelocityMPM()
 
     override suspend fun deleteLocationAt(locationID: Int) {
         return local.deleteID(locationID)

@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
     <application
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
@@ -14,16 +13,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".presentations.features.home.MainActivity">
+        <activity android:name="luyen.ninh.wallpaperx.features.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <service android:name=".presentations.services.TrackingLocationService"
+        <service android:name="luyen.ninh.wallpaperx.services.TrackingLocationService"
                 android:exported="true"/>
-        <service android:name=".presentations.services.TrackingStepService"
+
+        <service android:name="luyen.ninh.wallpaperx.services.TrackingStepService"
                 android:exported="true"
                 android:stopWithTask="true"/>
     </application>

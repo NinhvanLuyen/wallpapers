@@ -35,4 +35,14 @@ interface LocationDao
     @Query("SELECT * FROM location WHERE id=:id")
     suspend fun getLocationAt(id: Int): LocationEntity
 
+    @Query("SELECT location.velocityKmH FROM location order by time DESC limit 1")
+    fun getCurrentVelocityKmPH():LiveData<Float>
+
+    @Query("SELECT location.velocityMmM FROM location order by time DESC limit 1")
+    fun getCurrentVelocityMPM():LiveData<Float>
+
+    @Query("SELECT * from location where location.time >= :startTime and location.time <= :endTime ; ")
+    fun getVelocityKmPHAvg(startTime: Long, endTime: Long): LiveData<List<LocationEntity>>
+
+
 }

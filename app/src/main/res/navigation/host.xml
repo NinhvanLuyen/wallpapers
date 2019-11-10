@@ -7,7 +7,7 @@
         android:id="@+id/host">
 
     <fragment
-            android:name="luyen.ninh.wallpaperx.presentations.features.home.HomeFragment"
+            android:name="luyen.ninh.wallpaperx.features.home.HomeFragment"
             android:id="@+id/homeFragmentDes"
             android:label="@string/app_name"
             tools:layout="@layout/fragment_home">
@@ -33,7 +33,7 @@
     </fragment>
 
     <fragment
-            android:name="luyen.ninh.wallpaperx.presentations.features.detail.DetailFragment"
+            android:name="luyen.ninh.wallpaperx.features.detail.DetailFragment"
             android:id="@+id/detailFragmentDes"
             android:label="@string/title_detail"
             tools:layout="@layout/fragment_detail">
@@ -41,7 +41,7 @@
     </fragment>
 
     <fragment
-            android:name="luyen.ninh.wallpaperx.presentations.features.categories.CategoriesFragment"
+            android:name="luyen.ninh.wallpaperx.features.categories.CategoriesFragment"
             android:label="@string/title_category"
             android:id="@+id/categoriesFragmentDes"
             tools:layout="@layout/fragment_category">
